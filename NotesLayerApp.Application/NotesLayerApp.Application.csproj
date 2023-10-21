@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NotesLayerApp.Core\NotesLayerApp.Core.csproj" />
+    <ProjectReference Include="..\NotesLayerApp.Data\NotesLayerApp.Data.csproj" />
+  </ItemGroup>
+
 </Project>
