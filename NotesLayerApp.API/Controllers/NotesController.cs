@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NotesLayerApp.Application.Services.Notes;
 using NotesLayerApp.Core.Dto;
@@ -6,6 +8,7 @@ using NotesLayerApp.Core.Dto;
 namespace NotesLayerApp.API.Controllers
 {
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [Route("api/[controller]")]
     public class NotesController : ControllerBase
     {
@@ -16,7 +19,7 @@ namespace NotesLayerApp.API.Controllers
             _notesService = notesService;
         }
 
-        [HttpGet("GetNote")]
+        [HttpGet("GetNote/{id:int}")]
         public async Task<ActionResult<NoteDto>> Get(int id)
         {
             var dto = await _notesService.Get(id);

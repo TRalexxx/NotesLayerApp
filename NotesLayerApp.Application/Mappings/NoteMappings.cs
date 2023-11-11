@@ -14,6 +14,7 @@ namespace NotesLayerApp.Application.Mappings
         {
             var dto = new NoteDto
             {
+                Id = note.Id,
                 Text = note.Text,
                 Title = note.Title,
             };
